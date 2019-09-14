@@ -95,7 +95,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         if let btcResult = json["last"].double {
             
-            bitcoinPriceLabel.text = "\(selectedCurrencySymbol) \(btcResult)"
+            let attributedText = NSMutableAttributedString(string: "\(selectedCurrencySymbol) ", attributes: [.font: UIFont.boldSystemFont(ofSize: 40.0)])
+            attributedText.append(NSAttributedString(string: "\(btcResult)", attributes: [.font: UIFont.systemFont(ofSize: 40.0)]))
+//            bitcoinPriceLabel.text = "\(selectedCurrencySymbol) \(btcResult)"
+            bitcoinPriceLabel.attributedText = attributedText
         }
         
         else {
